@@ -14,7 +14,7 @@ let getPosts=async()=>{
     console.log(res.data);
     if(res.status===200){
         toast.success("posted succesfully")
-        setPosts(res.data.filter(e=>e.status))
+        setPosts(res.data)
     }
   }
   catch(error){
