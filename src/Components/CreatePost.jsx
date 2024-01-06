@@ -3,16 +3,26 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import TopBar from "./TopBar";
 import Postcard from "./Common/Postcard"
+import axios from "axios";
+import { API_URL } from "../App";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function CreatePost() {
   let[title,setTitle]=useState("")
   let[image,setImage]=useState("")
   let[description,setDescription]=useState("")
+  let Navigate=useNavigate()
 
-  const createHandle=()=>{
+  const createHandle=async ()=>{
     try{
       let data={
-        title,image,description,status:false
+        title,image,description,status:false  
+      }
+      let res = await axios.post(`${API_URL}`)
+      if(res.status===201){
+          toast.success("Posted succesfully")
+          Navigate('/dashboard')
       }
     }
     catch{error}

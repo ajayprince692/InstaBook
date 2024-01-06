@@ -1,13 +1,16 @@
 import React,{useEffect,useState} from 'react'
 import TopBar from './TopBar'
 import Postcard from './Common/Postcard'
+import { API_URL } from '../App'
+import { toast } from 'react-toastify'
+import axios from 'axios'
 
 function Home() {
   
   let[posts,setPosts]=useState([])
 let getPosts=async()=>{
   try{
-    let res= await axios.get(`${API_URL}/InstaBook`)
+    let res= await axios.get(`${API_URL}`)
     console.log(res.data);
     if(res.status===200){
         toast.success("posted succesfully")
