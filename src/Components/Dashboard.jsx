@@ -45,27 +45,7 @@ useEffect(() => {
       <tbody>
         {
           posts.map((e,i)=>{
-          <tr key={i}>
-              <td>{i+1}</td>
-              <td>{e.title}</td>
-              <td><img src={e.image} alt={e.title} style={{width:"150px"}} /></td>
-              <td>
-                <div style={{width:"250px",overflow:"hidden",textOverflow:'ellipsis'}}>
-                {e.description}
-                </div>
-                </td>
-                <td>
-                <label className="switch">
-                  <input type="checkbox"checked={e.status}/>
-                  <span className="slider round"></span>
-                </label>
-                </td>
-                <td>
-                  <Button variant='primary'>Edit</Button>
-                  &nbsp;
-                  <Button variant='danger'>Delete</Button>
-                </td>
-            </tr>
+          {e.name}
           })
         }
       </tbody>
